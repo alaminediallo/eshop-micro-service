@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserCredential {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +19,7 @@ public class User {
     @Column(unique = true)
     private String username;
     private String email;
+    private String password;
 
     @Column(name = "product_id")
     private Long productId;

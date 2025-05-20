@@ -1,9 +1,10 @@
 package com.lamine.isi.userservice.service;
 
 import com.lamine.isi.userservice.exception.NotFoundException;
-import com.lamine.isi.userservice.model.User;
-import com.lamine.isi.userservice.repository.IUserRepository;
+import com.lamine.isi.userservice.model.UserCredential;
+import com.lamine.isi.userservice.repository.IUserCredentialRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,32 +14,34 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UserService implements IUserService {
 
-    private final IUserRepository userRepository;
+    private final IUserCredentialRepository userRepository;
+    private final JwtService jwtService;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
-    public List<User> getAll() {
+    public List<UserCredential> getAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public User getById(Long id) {
+    public UserCredential getById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("User not found with id: " + id));
     }
 
     @Override
-    public User getByUsername(String username) {
+    public UserCredential getByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new NotFoundException("User not found with username: " + username));
     }
 
     @Override
-    public User save(User user) {
+    public UserCredential save(UserCredential user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User update(Long id, User user) {
+    public UserCredential update(Long id, UserCredential user) {
         if (!userRepository.existsById(id)) {
             throw new NotFoundException("User not found with id: " + id);
         }
@@ -47,8 +50,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User partialUpdate(Long id, Map<String, Object> updates) {
-        User existingUser = getById(id);
+    public UserCredential partialUpdate(Long id, Map<String, Object> updates) {
+        UserCredential existingUser = getById(id);
 
         if (updates.containsKey("username")) {
             existingUser.setUsername((String) updates.get("username"));
@@ -67,4 +70,18 @@ public class UserService implements IUserService {
         }
         userRepository.deleteById(id);
     }
+
+    public String generateToken(String username) {
+        return jwtService.generateToken(username);
+    }
+
+    public boolean validateToken(String token) {
+        return jwtService.validateToken(token);
+    }
+
+    public UserCredential saveUser(UserCredential credential) {
+        credential.setPassword(passwordEncoder.encode(credential.getPassword()));
+        return userRepository.save(credential);
+    }
+
 }
