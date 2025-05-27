@@ -1,6 +1,6 @@
-package com.lamine.isi.userservice.config;
+package com.lamine.isi.authservice.config;
 
-import com.lamine.isi.userservice.repository.IUserCredentialRepository;
+import com.lamine.isi.authservice.repository.IUserCredentialRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -55,7 +55,6 @@ public class AuthConfig {
                                 "/api/auth/token",
                                 "/api/auth/validate"
                         ).permitAll()
-                        .requestMatchers("/api/users/**").authenticated() // à verifier
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider());

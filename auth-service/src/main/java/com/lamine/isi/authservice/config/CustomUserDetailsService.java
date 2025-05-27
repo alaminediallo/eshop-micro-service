@@ -1,7 +1,8 @@
-package com.lamine.isi.userservice.config;
+package com.lamine.isi.authservice.config;
 
-import com.lamine.isi.userservice.model.UserCredential;
-import com.lamine.isi.userservice.repository.IUserCredentialRepository;
+import com.lamine.isi.authservice.config.CustomUserDetails;
+import com.lamine.isi.authservice.model.UserCredential;
+import com.lamine.isi.authservice.repository.IUserCredentialRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,4 +1,4 @@
-package com.lamine.isi.userservice.model;
+package com.lamine.isi.authservice.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

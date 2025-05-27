@@ -1,4 +1,4 @@
-package com.lamine.isi.userservice.service;
+package com.lamine.isi.authservice.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

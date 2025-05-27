@@ -1,24 +1,22 @@
 package com.lamine.isi.userservice.service;
 
-import com.lamine.isi.userservice.model.UserCredential;
+import com.lamine.isi.userservice.model.User;
 
 import java.util.List;
 import java.util.Map;
 
 public interface IUserService {
-    List<UserCredential> getAll();
+    List<User> getAll();
 
-    UserCredential getById(Long id);
+    User getById(Long id);
 
-    UserCredential getByUsername(String username);
+    User getByUsername(String username);
 
-    UserCredential save(UserCredential user);
+    User save(User user);
 
-    UserCredential update(Long id, UserCredential user);
+    User update(Long id, User user);
 
-    UserCredential partialUpdate(Long id, Map<String, Object> updates);
+    User partialUpdate(Long id, Map<String, Object> updates);
 
     void delete(Long id);
-
-    boolean validateToken(String token);
 }

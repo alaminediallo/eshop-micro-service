@@ -21,6 +21,9 @@ public class GatewayServiceApplication {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder, AuthenticationFilter filter) {
         return builder.routes()
+                .route("auth-service", r -> r.path("/api/auth/**")
+//                        .filters(f -> f.filter(filter))
+                        .uri("lb://auth-service"))
                 .route("product-service", r -> r.path("/api/products/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://product-service"))
@@ -30,7 +33,7 @@ public class GatewayServiceApplication {
                 .route("order-service", r -> r.path("/api/orders/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://order-service"))
-                .route("user-service", r -> r.path("/api/users/**", "api/auth/**")
+                .route("user-service", r -> r.path("/api/users/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://user-service"))
                 .build();

@@ -1,6 +1,6 @@
-package com.lamine.isi.userservice.config;
+package com.lamine.isi.authservice.config;
 
-import com.lamine.isi.userservice.model.UserCredential;
+import com.lamine.isi.authservice.model.UserCredential;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
