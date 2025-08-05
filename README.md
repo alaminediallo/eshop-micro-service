@@ -110,31 +110,31 @@ Après démarrage, tous les microservices sont enregistrés et opérationnels :
 ### Exemple d'utilisation avec authentification
 
 #### Inscription d'un utilisateur
-![Create User](./docs/images/create-user.png)
+![Create User](./docs/images/create-user.png)  
 *Inscription d'un nouvel utilisateur via l'endpoint `/api/auth/register`*
 
 #### Génération de token JWT
-![Get Token](./docs/images/get-token.png)
+![Get Token](./docs/images/get-token.png)  
 *Génération du token JWT via `/api/auth/token` - Authentification réussie*
 
 #### Démonstration de la sécurité JWT
 
 ##### Accès refusé sans token
-![List Users Without Token](./docs/images/list-user-without-token.png)
+![List Users Without Token](./docs/images/list-user-without-token.png)  
 *Accès refusé à `/api/users` sans token JWT - Sécurité fonctionnelle*
 
 ##### Accès autorisé avec token
-![List Users With Token](./docs/images/list-user-with-token.png)
+![List Users With Token](./docs/images/list-user-with-token.png)  
 *Accès réussi à `/api/users` avec token JWT valide*
 
 #### Gestion des produits avec sécurité
 
 ##### Tentative de création sans authentification
-![Create Product Without Token](./docs/images/create-product-without-token.png)
+![Create Product Without Token](./docs/images/create-product-without-token.png)  
 *Création refusée d'un produit sans token JWT - Protection des endpoints*
 
 ##### Création de produit avec authentification
-![Create Product With Token](./docs/images/create-product-with-token.png)
+![Create Product With Token](./docs/images/create-product-with-token.png)  
 *Création réussie d'un produit via `/api/products` avec token JWT*
 
 ### Authentification
@@ -222,4 +222,4 @@ Chaque service est configuré via `application.yaml` avec :
 
 ---
 
-_Projet développé dans le cadre d'un TP Java 17 Spring boot 3.4.5 (microservice) - Mai 2025_
+_Projet développé dans le cadre d'un TP avec Java 17 Spring boot 3.4.5 (microservice) - Mai 2025_
