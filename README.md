@@ -3,7 +3,7 @@
 ## Description
 Système de commerce électronique basé sur une architecture de microservices utilisant Spring Boot, Spring Cloud et PostgreSQL.
 
-## Test de l'API
+## Test de les micro services 
 Pour faciliter les tests, toutes les requêtes API ont été exportées dans une collection Insomnia :
 - **Fichier** : [`Insomnia_eshop_api.yaml`](docs/insomnia/Insomnia_eshop_api.yaml)
 - **Import** : Ouvrir Insomnia → Import → Sélectionner le fichier YAML
