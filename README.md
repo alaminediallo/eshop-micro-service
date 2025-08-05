@@ -65,9 +65,9 @@ Après démarrage, tous les microservices sont enregistrés et opérationnels :
 ## Démarrage
 
 ### Prérequis
-- Java 17
+- Java 17.0.15
 - Docker & Docker Compose
-- Maven
+- Maven 3.9.11
 
 ### Démarrage avec Docker
 1. **Démarrer PostgreSQL et pgAdmin** :
